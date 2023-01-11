@@ -1,0 +1,30 @@
+.elevator {
+  font-size: 3em;
+}
+
+rect.carriage {
+  fill:rgb(0,0,255);
+}
+
+rect.counterweight {
+  fill: black;
+}
+
+text {
+  fill: black;
+}
+
+.pulley {
+  stroke: black;
+  stroke-width: 2;
+  fill: red;
+}
+
+.cable {
+  fill: black;
+  stroke: none;
+}
+
+.carriage, .counterweight, .cable {
+  transition: all 0.5s ease-in-out !important;
+}
