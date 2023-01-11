@@ -1,4 +1,4 @@
-Simulating an elevator. Also help from [rollup] and [pico]
+Tic tac toe client and server. Also help from [rollup] and [pico]
 
 [rollup]: https://rollupjs.org/guide/en/
 
