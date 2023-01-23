@@ -1,9 +1,11 @@
 import React, { createContext, useState, useContext } from 'react';
 
+export const CELL_SIZE = 120;
+
 let board = [
-  ['-', '-', '-'],
-  ['-', '-', '-'],
-  ['-', '-', '-']
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
 ];
 
 const baseGame = {
