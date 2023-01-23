@@ -1,15 +1,13 @@
 import React from 'react';
-
-function Game() {
-  return (
-    <span>The Os win!</span>
-  )
-}
+import Context from './constants';
+import Board from './Board';
 
 function App() {
   return (
     <div className="grid">
-      <Game />
+      <Context>
+        <Board />
+      </Context>
     </div>
   );
 }
