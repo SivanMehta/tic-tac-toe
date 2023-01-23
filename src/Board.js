@@ -1,10 +1,30 @@
 import React from 'react';
 import { useGame, CELL_SIZE } from './constants';
 
-function GameOver() {
-  const [ { over, winner } ] = useGame();
+function checkWinner() {
 
-  
+}
+
+function Cell({ x, y, content, onClick}) {
+  return (
+    <>
+      <text
+        x={ x * CELL_SIZE + 1 + CELL_SIZE / 2 }
+        y={ y * CELL_SIZE + 1 + 3 * CELL_SIZE / 4 }
+      >
+        {content}
+      </text>
+      <rect
+        className='cell'
+        key={`cell ${i}-${j}`}
+        x={x * CELL_SIZE + 1}
+        y={y * CELL_SIZE + 1}
+        width={CELL_SIZE}
+        height={CELL_SIZE}
+        onClick={() => onClick(x, y)}
+      />
+    </>
+  )
 }
 
 export default function Board() {
@@ -17,36 +37,38 @@ export default function Board() {
     )
   }
 
-  state.board.forEach((row, i) => {
-    row.forEach((cell, j) => {
-      function onClick() {
-        if(state.board[i][j] !== '') return;
-        
-        const newBoard = state.board.map(row => row.slice());
-        newBoard[i][j] = state.player;
-        setState({
-          board: newBoard,
-          player: state.player === 'x' ? 'o' : 'x',
-        });
-      }
+  function onClick(x, y) {
+    if(state.board[y][x] !== '') return;
+    
+    const newBoard = state.board.map(row => row.slice());
+    newBoard[y][x] = state.player;
+    setState({
+      board: newBoard,
+      player: state.player === 'x' ? 'o' : 'x',
+    });
 
+    checkWinner(newBoard);
+  }
+
+  state.board.forEach((row, y) => {
+    row.forEach((cell, x) => {
       cells.push(
         <>
-        <text
-          x={ j * CELL_SIZE + 1 + CELL_SIZE / 2 }
-          y={ i * CELL_SIZE + 1 + 3 * CELL_SIZE / 4 }
-        >
-          {cell}
-        </text>
-        <rect
-          className='cell'
-          key={`cell ${i}-${j}`}
-          x={j * CELL_SIZE + 1}
-          y={i * CELL_SIZE + 1}
-          width={CELL_SIZE}
-          height={CELL_SIZE}
-          onClick={onClick}
-        />
+          <text
+            x={ x * CELL_SIZE + 1 + CELL_SIZE / 2 }
+            y={ y * CELL_SIZE + 1 + 3 * CELL_SIZE / 4 }
+          >
+            {cell}
+          </text>
+          <rect
+            className='cell'
+            key={`cell ${x}-${y}`}
+            x={x * CELL_SIZE + 1}
+            y={y * CELL_SIZE + 1}
+            width={CELL_SIZE}
+            height={CELL_SIZE}
+            onClick={() => onClick(x, y)}
+          />
         </>
       );
     });
