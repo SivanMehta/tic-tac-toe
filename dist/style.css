@@ -9,5 +9,18 @@ rect {
 }
 
 .cell {
-  fill: rgba(0,0,0,0)
+  fill: rgba(0,0,0,0);
+}
+
+.strikethrough {
+  fill: red;
+  stroke: none;
+}
+
+.right {
+  transform: rotate(-45deg);
+}
+
+.left {
+  transform: translateX(360px) rotate(45deg);
 }
