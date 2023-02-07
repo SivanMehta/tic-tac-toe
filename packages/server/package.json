@@ -1,0 +1,18 @@
+{
+  "name": "server",
+  "version": "0.0.0",
+  "description": "tic-tac-toe game server",
+  "scripts": {
+    "start": "echo what",
+    "test": "echo \"Error: no test specified\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SivanMehta/tic-tac-toe.git"
+  },
+  "author": "Sivan Mehta",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "http-server": "^14.1.1"
+  }
+}

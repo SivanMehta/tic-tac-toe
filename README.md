@@ -1,19 +1,11 @@
-Tic tac toe client and server. Also help from [rollup] and [pico]
+## Install Dependencies
 
-[rollup]: https://rollupjs.org/guide/en/
-
-## Run build locally
-
-```bash
-npm run build
-npm run build -- -w # for live reloads
+```sh
+npm ci
 ```
 
-## Serve files locally
+## Start app
 
+```sh
+npm start
 ```
-npm run serve
-```
-
-[rollup]: https://rollupjs.org/guide/en/
-[pico]: https://picocss.com/docs/

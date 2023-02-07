@@ -1,11 +1,13 @@
 {
-  "name": "tic-tac-toe",
+  "name": "client",
   "version": "0.0.0",
   "private": true,
+  "description": "tic-tac-toe client assets",
   "scripts": {
-    "build": "npm run build --workspace client",
-    "start": "npm start --workspace server",
-    "test": "npm run test --workspaces"
+    "build": "rollup -c rollup.config.js",
+    "serve": "cd dist/ && python -m http.server 8080",
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "postinstall": "npm run build"
   },
   "author": "Sivan Mehta",
   "license": "UNLICENSED",
@@ -20,9 +22,5 @@
     "react-dom": "^17.0.0",
     "rollup": "^2.0.0",
     "rollup-plugin-livereload": "^2.0.0"
-  },
-  "workspaces": [
-    "packages/client",
-    "packages/server"
-  ]
+  }
 }
