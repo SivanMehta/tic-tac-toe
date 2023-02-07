@@ -6,6 +6,7 @@ Tic tac toe client and server. Also help from [rollup] and [pico]
 
 ```bash
 npm run build
+npm run build -- -w # for live reloads
 ```
 
 ## Serve files locally

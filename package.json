@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "build:watch": "rollup -c rollup.config.js -w",
     "build": "rollup -c rollup.config.js",
     "serve": "cd dist/ && python -m http.server 8080"
   },
