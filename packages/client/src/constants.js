@@ -5,7 +5,6 @@ export const CELL_SIZE = 120;
 // there's got to be a better way to do this
 export function checkWinner(board, turn) {
   const potentialWinner = turn % 2 === 0 ? 'x' : 'o';
-  console.log('checking winner', potentialWinner, board);
   // horizontal win
   for(let i = 0; i < 3; i++) {
     if(board[i][0] === potentialWinner &&

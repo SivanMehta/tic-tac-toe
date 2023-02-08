@@ -32,8 +32,6 @@ export default function Board() {
     overlay = <GameOver />;
   }
 
-  console.log(state.over);
-
   function onClick(x, y) {
     if(state.board[y][x] !== '') return;
     if(state.over) return;
