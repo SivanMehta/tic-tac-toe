@@ -1,0 +1,26 @@
+text {
+  fill: white;
+  font: 100px monospace;
+  text-anchor: middle;
+}
+
+rect {
+  stroke: white;
+}
+
+.cell {
+  fill: rgba(0,0,0,0);
+}
+
+.strikethrough {
+  fill: red;
+  stroke: none;
+}
+
+.right {
+  transform: rotate(-45deg);
+}
+
+.left {
+  transform: translateX(360px) rotate(45deg);
+}
