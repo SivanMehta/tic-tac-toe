@@ -1,6 +1,6 @@
 import React from 'react';
 import { useGame, CELL_SIZE, checkWinner } from '../constants';
-import GameOver from '../GameOver';
+import GameOver from './GameOver';
 
 function Cell({ x, y, content, onClick}) {
   return (

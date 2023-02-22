@@ -8,6 +8,7 @@ const staticDirectory = path.join('..', 'client', 'dist');
 
 const app = express();
 app.use(express.static(staticDirectory));
+app.use('/game/:gameId', express.static(staticDirectory))
 app.use(morgan('dev'));
 
 const server = createServer(app);

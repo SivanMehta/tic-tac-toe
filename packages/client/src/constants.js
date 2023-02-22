@@ -46,20 +46,17 @@ let board = [
   ['', '', '']
 ];
 
-const connection = new WebSocket('ws://localhost:8080');
-connection.onmessage = handleMessages;
+function handleMessages(event) {
+  console.log('Message from server ', JSON.parse(event.data));
+}
 
 const baseGame = {
   player: 'x', // which player is playing
   over: false, // if the game is over (indicates when the score needs to be calculated)
   board, // pieces placed on the board
   turn: 0,
-  connection
+  connection: {}
 };
-
-function handleMessages(event) {
-  console.log('Message from server ', JSON.parse(event.data));
-}
 
 const Game = createContext(baseGame);
 export const useGame = () => useContext(Game);

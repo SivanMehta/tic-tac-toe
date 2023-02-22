@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGame } from './constants';
+import { useGame } from '../constants';
 
 export default function GameOver() {
   const [ {over} ] = useGame();
@@ -22,14 +22,17 @@ export default function GameOver() {
       x: 30
     };
   } else if(type == 'diagonal') {
-      specs = {
-        height: 424,
-        width: 10,
-        y: 30,
-        x: -5,
-        className: location ? 'left' : 'right'
-      };
+    specs = {
+      height: 424,
+      width: 10,
+      y: 30,
+      x: -5,
+      className: location ? 'left' : 'right'
+    };
   }
+
+  console.log(over, type, specs);
+
 
   return (
     <rect {...specs } className={"strikethrough " + specs.className}/>
