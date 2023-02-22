@@ -9,28 +9,22 @@ const staticDirectory = path.join('..', 'client', 'dist');
 const app = express();
 app.use(express.static(staticDirectory));
 app.use(morgan('dev'));
-const wss = new WebSocketServer({ server: app });
 
-wss.on('connection', function (ws, request) {
-  const userId = request.session.userId;
+const server = createServer(app);
+const wss = new WebSocketServer({ server });
 
-  map.set(userId, ws);
+wss.on('connection', function (ws) {
+  console.log('new connection!')
+  ws.send(JSON.stringify(process.memoryUsage()));
+  console.log('started client interval');
 
   ws.on('error', console.error);
 
-  ws.on('message', function (message) {
-    //
-    // Here we can now use session parameters.
-    //
-    console.log(`Received message ${message} from user ${userId}`);
-  });
-
   ws.on('close', function () {
-    map.delete(userId);
+    console.log('stopping client interval');
   });
 });
 
-
-app.listen(8080, function () {
+server.listen(8080, function () {
   console.log('Listening on http://localhost:8080');
 });

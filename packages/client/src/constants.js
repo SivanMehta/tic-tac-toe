@@ -1,4 +1,4 @@
-import React, { createContext, useState, useContext } from 'react';
+import React, { createContext, useState, useContext, useEffect } from 'react';
 
 export const CELL_SIZE = 120;
 
@@ -46,12 +46,20 @@ let board = [
   ['', '', '']
 ];
 
+const connection = new WebSocket('ws://localhost:8080');
+connection.onmessage = handleMessages;
+
 const baseGame = {
   player: 'x', // which player is playing
   over: false, // if the game is over (indicates when the score needs to be calculated)
   board, // pieces placed on the board
-  turn: 0
+  turn: 0,
+  connection
 };
+
+function handleMessages(event) {
+  console.log('Message from server ', JSON.parse(event.data));
+}
 
 const Game = createContext(baseGame);
 export const useGame = () => useContext(Game);
@@ -62,6 +70,16 @@ export default function Wrapper({ children }) {
   function setState(change) {
     set({ ...state, ...change });
   }
+
+  const socketURL = "ws://localhost:8080";
+
+  useEffect(() => {
+    const connection = new WebSocket(socketURL);
+    connection.onmessage = handleMessages;
+    return () => {
+      connection.close();
+    }
+  }, [ socketURL ])
 
   return (
     <Game.Provider value={[state, setState]}>
