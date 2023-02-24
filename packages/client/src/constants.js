@@ -59,7 +59,9 @@ const baseGame = {
 };
 
 const Game = createContext(baseGame);
-export const useGame = () => useContext(Game);
+export const useGame = (gameId) => {
+  return useContext(Game);
+}
 
 export default function Wrapper({ children }) {
   const [ state, set ] = useState(baseGame);

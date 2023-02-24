@@ -31,9 +31,6 @@ export default function GameOver() {
     };
   }
 
-  console.log(over, type, specs);
-
-
   return (
     <rect {...specs } className={"strikethrough " + specs.className}/>
   )

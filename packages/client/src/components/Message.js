@@ -1,8 +1,10 @@
 import React from 'react';
 import { useGame } from '../constants';
+import { useParams } from 'react-router-dom';
 
 export default function Message() {
-  const [ {over, turn} ] = useGame();
+  const { gameId } = useParams();
+  const [ {over, turn} ] = useGame(gameId);
 
   let content;
 

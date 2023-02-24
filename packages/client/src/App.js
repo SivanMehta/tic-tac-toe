@@ -1,6 +1,6 @@
 import React from 'react';
 import Landing from './pages/Landing';
-import Game from './pages/Game';
+import Game, { gameLoader } from './pages/Game';
 import Error from './pages/Error';
 
 import {
@@ -17,6 +17,7 @@ const router = createBrowserRouter([
   {
     path: "/game/:gameId",
     element: <Game />,
+    loader: gameLoader,
     errorElement: <Error />,
   },
 ]);

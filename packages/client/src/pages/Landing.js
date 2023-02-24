@@ -5,7 +5,10 @@ function Landing () {
   return (
     <>
       <h1>Tic Tac Toe!</h1>
-      <Link to="/game/123">Play</Link>
+      <ul>
+        <li><Link to="/game/123">Play</Link></li>
+        <li><Link to="/faq">FAQ</Link></li>
+      </ul>
     </>
   )
 }
