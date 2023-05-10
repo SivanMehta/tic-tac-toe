@@ -9,18 +9,6 @@
   },
   "author": "Sivan Mehta",
   "license": "UNLICENSED",
-  "dependencies": {
-    "@babel/core": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^18.0.0",
-    "@rollup/plugin-node-resolve": "^11.0.0",
-    "@rollup/plugin-replace": "^2.0.0",
-    "react": "^17.0.0",
-    "react-dom": "^17.0.0",
-    "rollup": "^2.0.0",
-    "rollup-plugin-livereload": "^2.0.0"
-  },
   "workspaces": [
     "packages/client",
     "packages/server"
