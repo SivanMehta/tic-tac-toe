@@ -1,7 +1,7 @@
 import React from 'react';
-import Landing from './pages/Landing';
-import Game, { gameLoader } from './pages/Game';
-import Error from './pages/Error';
+import Landing from './pages/Landing.jsx';
+import Game, { gameLoader } from './pages/Game.jsx';
+import Error from './pages/Error.jsx';
 
 import {
   createBrowserRouter,

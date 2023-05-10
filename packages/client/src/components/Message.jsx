@@ -1,6 +1,6 @@
 import React from 'react';
-import { useGame } from '../constants';
 import { useParams } from 'react-router-dom';
+import { useGame } from '../constants.jsx';
 
 export default function Message() {
   const { gameId } = useParams();
@@ -16,7 +16,7 @@ export default function Message() {
   } else {
     // win state is set AFTER the turn, so we have to flip the ternary here
     const player = (turn % 2 === 0) ? 'X' : 'O';
-    content = `${player} to play`;
+    content = `${player} to play!`;
   }
 
   return (
