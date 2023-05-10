@@ -1,10 +1,9 @@
 import express from 'express';
 import { WebSocketServer } from 'ws';
-import { createServer } from 'http';
 import morgan from 'morgan';
 import path from 'path';
 
-const staticDirectory = path.join('..', 'client', 'dist');
+const staticDirectory = path.join('..', 'client', 'dist2');
 
 const app = express();
 app.use(express.static(staticDirectory));
