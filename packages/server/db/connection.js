@@ -33,6 +33,10 @@ export default class Connection {
     return game;
   }
 
+  async getAllGames() {
+    return Object.fromEntries(this.db);
+  }
+
   set(key, id, data) {
     this.db.set(`${key}:${id}`, data);
   }

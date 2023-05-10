@@ -14,4 +14,10 @@ export function addRoutes(app) {
 
     res.json(data);
   });
+
+  app.get('/api/games', async (req, res) => {
+    const data = await connection.getAllGames();
+
+    res.json(data);
+  })
 }
