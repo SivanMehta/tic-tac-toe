@@ -1,7 +1,7 @@
 import React from 'react';
-import Context from './constants';
-import Board from './components/Board';
-import Message from './components/Message';
+import Context from './constants.jsx';
+import Board from './components/Board.jsx';
+import Message from './components/Message.jsx';
 
 function App() {
   return (
