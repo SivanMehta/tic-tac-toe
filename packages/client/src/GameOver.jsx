@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGame } from './constants';
+import { useGame } from './constants.jsx';
 
 export default function GameOver() {
   const [ {over} ] = useGame();
