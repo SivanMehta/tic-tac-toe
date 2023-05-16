@@ -15,7 +15,7 @@ export default class Connection {
     // dummy data
     this.db.set('game:1', {
       gameId: 1,
-      board: 'xoxoxoxoxox',
+      board: '_________',
       turn: 'x'
     });
   }
