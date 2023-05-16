@@ -1,35 +1,27 @@
 import express from 'express';
 import { WebSocketServer } from 'ws';
 import morgan from 'morgan';
-import path from 'path';
-
-const staticDirectory = path.join('..', 'client', 'dist');
+import { createServer } from 'http';
+import { generateRoutes } from './routes/index.js';
 
 const app = express();
-app.use(express.static(staticDirectory));
 app.use(morgan('dev'));
-const wss = new WebSocketServer({ server: app });
+generateRoutes(app);
 
-wss.on('connection', function (ws, request) {
-  const userId = request.session.userId;
+const server = createServer(app);
+const wss = new WebSocketServer({ server });
 
-  map.set(userId, ws);
+wss.on('connection', function (ws) {
+  console.log('new connection!')
+  ws.send(JSON.stringify(process.memoryUsage()));
 
   ws.on('error', console.error);
 
-  ws.on('message', function (message) {
-    //
-    // Here we can now use session parameters.
-    //
-    console.log(`Received message ${message} from user ${userId}`);
-  });
-
   ws.on('close', function () {
-    map.delete(userId);
+    console.log('ending client connection');
   });
 });
 
-
-app.listen(8080, function () {
+server.listen(8080, function () {
   console.log('Listening on http://localhost:8080');
 });

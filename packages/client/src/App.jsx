@@ -1,17 +1,33 @@
 import React from 'react';
-import Context from './constants.jsx';
-import Board from './components/Board.jsx';
-import Message from './components/Message.jsx';
+import Landing from './pages/Landing.jsx';
+import Game, { gameLoader } from './pages/Game.jsx';
+import Error from './pages/Error.jsx';
+
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Landing />,
+    errorElement: <Error />,
+  },
+  {
+    path: "/game/:gameId",
+    element: <Game />,
+    loader: gameLoader,
+    errorElement: <Error />,
+  },
+]);
 
 function App() {
   return (
-    <div className="grid">
-      <Context>
-        <Board />
-        <Message />
-      </Context>
-    </div>
-  );
+    <React.StrictMode>
+      <RouterProvider router={router} />
+    </React.StrictMode>
+  )
 }
 
 

@@ -1,3 +1,4 @@
 node_modules
 packages/client/dist/bundle.*
+packages/client/dist/stats.json
 .DS_Store
